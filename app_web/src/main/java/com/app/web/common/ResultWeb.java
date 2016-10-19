@@ -2,7 +2,7 @@
  * @author Administrator
  *
  */
-package com.app.web.commons;
+package com.app.web.common;
 
 public class ResultWeb<T> {
 

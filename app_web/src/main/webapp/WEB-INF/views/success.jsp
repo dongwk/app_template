@@ -2,9 +2,9 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>404</title>
+<title>success.jsp</title>
 </head>
 <body>
-404
+success.jsp
 </body>
 </html>

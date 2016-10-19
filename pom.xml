@@ -268,5 +268,7 @@
 		<module>app_service</module>
 		<module>app_web</module>
 		<module>app_model</module>
+		<module>app_common</module>
+		<module>app_core</module>
 	</modules>
 </project>

@@ -2,9 +2,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>500</title>
+<title>error-business.jsp</title>
 </head>
 <body>
-500
+error-business.jsp
+${ex.message }
 </body>
 </html>
