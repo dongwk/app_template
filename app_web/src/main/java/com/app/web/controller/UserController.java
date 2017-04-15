@@ -7,12 +7,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.app.core.exception.BusinessException;
 import com.app.model.User;
 import com.app.service.UserService;
 import com.app.web.common.ResultWeb;
@@ -28,16 +27,16 @@ public class UserController {
 	
 	@RequestMapping("/index")
 	public String index(){
-		if (StringUtils.isEmpty(null)) throw new BusinessException();
+		System.out.println("0000");
     	return "success";
 	}
 	
-    @RequestMapping(value="", method=RequestMethod.GET)
+    @RequestMapping(value="/{uid}", method=RequestMethod.GET)
     @ResponseBody
-	public ResultWeb<User> get(Long uid){
+	public ResultWeb<User> get(@PathVariable Long uid){
     	logger.info("get");
-    	uid = 1L;
-    	return ResultWeb.SUCCESS(userService.get(uid));
+    	User user = userService.get(uid);
+    	return ResultWeb.SUCCESS(user);
 	}
     
     public static void main(String[] args) {
