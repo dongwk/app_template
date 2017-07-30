@@ -757,4 +757,40 @@ public class DateUtil {
         ZonedDateTime zonedDateTime = startOfDay.atZone(ZoneId.systemDefault());
         return Date.from(zonedDateTime.toInstant());  
 	}
+	
+
+	
+	/**
+	 * 获取月开始日期
+	 * @param date 日期
+	 * @return 开始日期
+	 */
+	public static Date getBeginOfWeek(Date date) {
+		Calendar calendar = toCalendar(date);
+		calendar.set(Calendar.DAY_OF_WEEK, Calendar.MONDAY); 
+		calendar.set(Calendar.HOUR, 0);
+		calendar.set(Calendar.MINUTE, 0);
+		calendar.set(Calendar.SECOND, 0);
+		calendar.set(Calendar.MILLISECOND, 0);
+		return calendar.getTime();
+	}
+	
+	/**
+	 * 获取月结束日期
+	 * @param date 日期
+	 * @return 结束日期
+	 */
+	public static Date getEndOfWeek(Date date) {
+		Calendar calendar = toCalendar(date);
+		calendar.set(Calendar.DAY_OF_WEEK, Calendar.SUNDAY); 
+		calendar.set(Calendar.HOUR, 23);
+		calendar.set(Calendar.MINUTE, 59);
+		calendar.set(Calendar.SECOND, 59);
+		calendar.set(Calendar.MILLISECOND, 999);
+		return calendar.getTime();
+	}
+	
+	public static void main(String[] args) {
+		System.out.println(DateFormatUtil.toYYYYMMDDHHMMSS(getEndOfWeek(new Date())));
+	}
 }
