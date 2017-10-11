@@ -4,6 +4,11 @@ import java.util.Date;
 
 import org.apache.commons.lang3.time.DateFormatUtils;
 
+/**
+ * 时间转换
+ * @author Administrator
+ *
+ */
 public class DateFormatUtil {
 
 	/**
@@ -15,10 +20,7 @@ public class DateFormatUtil {
 	public static String format(Date date, DateStyle dateStyle) {
 		String dateString = null;
 		if (date != null) {
-			try {
-				dateString = DateFormatUtils.format(date, dateStyle.getValue());
-			} catch (Exception e) {
-			}
+			dateString = format(date, dateStyle.getValue());
 		}
 		return dateString;
 	}
@@ -32,10 +34,7 @@ public class DateFormatUtil {
 	public static String format(Date date, String parttern) {
 		String dateString = null;
 		if (date != null) {
-			try {
-				dateString = DateFormatUtils.format(date, parttern);
-			} catch (Exception e) {
-			}
+			dateString = DateFormatUtils.format(date, parttern);
 		}
 		return dateString;
 	}

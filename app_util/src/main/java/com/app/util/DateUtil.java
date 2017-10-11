@@ -1,5 +1,6 @@
 package com.app.util;
 
+import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.YearMonth;
@@ -175,7 +176,8 @@ public class DateUtil {
 		if (date != null) {
 			try {
 				myDate = DateUtils.parseDate(date, parttern);
-			} catch (Exception e) {
+			} catch (ParseException e) {
+				throw new RuntimeException(e);
 			}
 		}
 		return myDate;
@@ -236,13 +238,11 @@ public class DateUtil {
 	 */
 	public static Calendar toCalendar(String date, String parttern) {
 		if (date != null) {
-			try {
-				Date myDate = DateUtils.parseDate(date, parttern);
-				Calendar calendar = Calendar.getInstance();
-				calendar.setTime(myDate);
-				return calendar;
-			} catch (Exception e) {
-			}
+			Date myDate = toDate(date, parttern);
+			toDate(date, parttern);
+			Calendar calendar = Calendar.getInstance();
+			calendar.setTime(myDate);
+			return calendar;
 		}
 		return null;
 	}
@@ -284,10 +284,7 @@ public class DateUtil {
 	public static String toStr(Date date, String parttern) {
 		String dateString = null;
 		if (date != null) {
-			try {
-				dateString = DateFormatUtils.format(date, parttern);
-			} catch (Exception e) {
-			}
+			dateString = DateFormatUtils.format(date, parttern);
 		}
 		return dateString;
 	}
