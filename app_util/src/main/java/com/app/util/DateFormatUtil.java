@@ -39,11 +39,22 @@ public class DateFormatUtil {
 		return dateString;
 	}
 	
-	public static String toYYYYMMDD(Date date){
+	/**
+	 * 日期转换为字符串 YYYY-MM-DD
+	 * @param date
+	 * @return
+	 */
+	public static String formatYYYYMMDD(Date date){
 		return format(date, DateStyle.YYYY_MM_DD);
 	}
+
 	
-	public static String toYYYYMMDDHHMMSS(Date date){
+	/**
+	 * 日期转换为字符串 YYYY-MM-DD HH:mm:ss
+	 * @param date
+	 * @return
+	 */
+	public static String formatYYYYMMDDHHMMSS(Date date){
 		return format(date, DateStyle.YYYY_MM_DD_HH_MM_SS);
 	}
 }

@@ -755,8 +755,6 @@ public class DateUtil {
         return Date.from(zonedDateTime.toInstant());  
 	}
 	
-
-	
 	/**
 	 * 获取月开始日期
 	 * @param date 日期
@@ -787,7 +785,17 @@ public class DateUtil {
 		return calendar.getTime();
 	}
 	
-	public static void main(String[] args) {
-		System.out.println(DateFormatUtil.toYYYYMMDDHHMMSS(getEndOfWeek(new Date())));
+	/**
+	 * 字符串转换时间
+	 * @param date
+	 * @param parttern
+	 * @return
+	 */
+	public static Date parseDate(String date, String parttern){
+		try {
+			return DateUtils.parseDate(date, parttern);
+		} catch (ParseException e) {
+			throw new RuntimeException(e);
+		}
 	}
 }

@@ -64,6 +64,11 @@ public class Base64Util {
 		}
 	}
 
+	/**
+	 * 默认按照 UTF-8 编码，进行BASE64编码
+	 * @param str
+	 * @return
+	 */
 	public static String encode(String str) {
 		try {
 			return new String(Base64.encodeBase64(str.getBytes(CHARSET)), CHARSET);
@@ -71,7 +76,12 @@ public class Base64Util {
 			throw new RuntimeException(e);
 		}
 	}
-	
+
+	/**
+	 * 默认按照 UTF-8 编码，进行BASE64解码
+	 * @param str
+	 * @return
+	 */
 	public static String decode(String str) {
 		try {
 			return new String(Base64.decodeBase64(CHARSET), CHARSET);
